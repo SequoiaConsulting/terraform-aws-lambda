@@ -7,8 +7,8 @@ variable "vpc_config" {
   type = map
 
   default = {
-    subnet_ids         = ""
-    security_group_ids = ""
+    subnet_ids         = []
+    security_group_ids = []
   }
 }
 

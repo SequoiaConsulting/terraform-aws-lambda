@@ -11,8 +11,8 @@ resource "aws_lambda_function" "lambda" {
   publish                        = var.publish
 
   vpc_config {
-    subnet_ids         = ["${var.vpc_config["subnet_ids"]}"]
-    security_group_ids = ["${var.vpc_config["security_group_ids"]}"]
+    subnet_ids         = var.vpc_config["subnet_ids"]
+    security_group_ids = var.vpc_config["security_group_ids"]
   }
 
   environment {
