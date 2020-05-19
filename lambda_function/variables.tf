@@ -68,8 +68,14 @@ variable "sns_topic_subscription" {
 }
 
 variable "policies" {
-  type    = list
+  type = string
+  description  = "JSON encoded policy string for custom policies"
+}
+
+variable "managed_policies" {
+  type = list(string)
   default = []
+  description = "AWS Managed policies to be attached to lambda function"
 }
 
 variable "permissions" {

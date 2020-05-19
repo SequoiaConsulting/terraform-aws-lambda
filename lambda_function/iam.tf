@@ -20,32 +20,15 @@ resource "aws_iam_role" "lambda" {
 EOF
 }
 
-resource "local_file" "debug_policy" {
-  count    = 0
-  filename = "${path.module}/policy/${var.function_name}.json"
-
-  content = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": ${jsonencode(var.policies)}
-}
-EOF
-}
-
 resource "aws_iam_role_policy" "lambda_policy" {
   count = length(var.policies) == 0 ? 0 : 1
   name  = "${var.function_name}-lambda-policy"
   role  = aws_iam_role.lambda.id
-
-  policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": ${jsonencode(var.policies)}
-}
-EOF
+  policy = var.policies
 }
 
 resource "aws_iam_role_policy_attachment" "lambda_role_policy_attachment" {
+  for_each = var.managed_policies
   role       = aws_iam_role.lambda.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+  policy_arn = each.value
 }
