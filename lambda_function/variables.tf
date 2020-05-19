@@ -70,6 +70,7 @@ variable "sns_topic_subscription" {
 variable "policies" {
   type = string
   description  = "JSON encoded policy string for custom policies"
+  default = ""
 }
 
 variable "managed_policies" {
