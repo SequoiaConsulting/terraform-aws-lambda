@@ -1,7 +1,7 @@
 # terraform-aws-lambda
 Terraform module for provisioning a Lambda function.
 
-This module gives option to create an empty (place-holder) Lambda function using the "create_empty_function" argument, rather than using Terraform to deploy the actual function code. Once all infrastructure, functions, and permissions have been provisioned using Terraform, you can use your CI/CD tooling to deploy the function code, typically with an **aws lambda update** command. This solves the chicken
+This module gives option to create an empty (place-holder) Lambda function using the "create_empty_function" argument, rather than using Terraform to deploy the actual function code. Once all infrastructure, functions, and permissions have been provisioned using Terraform, you can use your CI/CD tooling to deploy the function code, typically with an **aws lambda update** command. This module solves the chicken-egg dependency problem we would otherwise encounter with Lambda - That is CI pipeline requires infrastructure to be present before pushing its application code, and infrstructure code requires application code to be present to create Lambda function infrastructure.
 
 # Inputs
 Many of the module arguments map directly to the aws_lambda_function resource arguments:
