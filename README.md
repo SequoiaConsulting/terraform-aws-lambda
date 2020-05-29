@@ -18,7 +18,6 @@ Many of the module arguments map directly to the aws_lambda_function resource ar
 * reserved_concurrent_executions
 * publish
 
-<<<<<<< HEAD
 ## Additional Inputs:
 
 | Input   | Optional?    | Type | Description |
