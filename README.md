@@ -20,17 +20,6 @@ Many of the module arguments map directly to the aws_lambda_function resource ar
 
 <<<<<<< HEAD
 ## Additional Inputs:
-=======
-Additional arguments are:
-* **create_empty_function** - (Required) (bool) - Create an empty lambda function without the actual code if set to true
-* **policies** - (Required) (string) - The module automatically creates a base IAM role for each lambda, This is a JSON string of statement policies to add to that role.
-* **managed_policies** - (Optional) (string) - AWS Managed policies to add to the Lambda IAM role. This is list of strings - each string having ARN of the IAM role.
-* **permissions** - (Optional) (list) - A list of external resources which can invoke the lambda function such as s3 bucket / sns topic. Properties are:
-  * statement_id
-  * action
-  * principal
-  * source_arn
->>>>>>> 97734c9ab492c8e64c79e908b1ba8f5db5bd7fd7
 
 | Input   | Optional?    | Type | Description |
 | ------- | ------------ | -----|------------ |    
